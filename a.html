@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Присоединяйся к нашему Дисскорд серверу по Dota 2, Roblox и общению! Находи тиммейтов, обсуждай игры и участвуй в ивентах в приятной атмосфере!">
+    <meta name="author" content="SuperXnova">
+    <title>Дисскорд сервер</title>
+    <link rel="icon" type="image/jpeg" href="avatar.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2a0000, #000000);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #ff3333;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .glow-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 51, 51, 0.4) 0%, rgba(0, 0, 0, 0.8) 70%);
+            animation: pulseGlow 5s ease-in-out infinite;
+            z-index: -1;
+        }
+        @keyframes pulseGlow {
+            0% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+            100% { opacity: 0.4; transform: scale(1); }
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .fade-in-delay-1 { animation: fadeIn 1.7s ease-in-out; }
+        .fade-in-delay-2 { animation: fadeIn 1.9s ease-in-out; }
+        .fade-in-delay-3 { animation: fadeIn 2.1s ease-in-out; }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .avatar-img {
+            border: 6px solid #ff3333;
+            box-shadow: 0 0 30px rgba(255, 51, 51, 0.8), 0 0 50px rgba(255, 51, 51, 0.4);
+            filter: grayscale(10%) brightness(1.1);
+            animation: avatarPulse 3s ease-in-out infinite;
+            border-radius: 50%;
+        }
+        @keyframes avatarPulse {
+            0% { box-shadow: 0 0 30px rgba(255, 51, 51, 0.8), 0 0 50px rgba(255, 51, 51, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 50px rgba(255, 51, 51, 1), 0 0 70px rgba(255, 51, 51, 0.6); transform: scale(1.08); }
+            100% { box-shadow: 0 0 30px rgba(255, 51, 51, 0.8), 0 0 50px rgba(255, 51, 51, 0.4); transform: scale(1); }
+        }
+        .title-font {
+            font-family: 'Creepster', cursive;
+            animation: bloodFlicker 3s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(255, 51, 51, 0.9);
+        }
+        @keyframes bloodFlicker {
+            0% { color: #ff3333; text-shadow: 0 0 15px rgba(255, 51, 51, 0.9); }
+            50% { color: #cc0000; text-shadow: 0 0 20px rgba(255, 51, 51, 1); }
+            100% { color: #ff3333; text-shadow: 0 0 15px rgba(255, 51, 51, 0.9); }
+        }
+        .btn-glow {
+            background: linear-gradient(45deg, #ff3333, #cc0000);
+            animation: buttonDrip 2.5s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            border-radius: 50px;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 30px #ff3333, 0 0 60px #ff3333;
+            transform: scale(1.15);
+            background: linear-gradient(45deg, #ff5555, #ff3333);
+        }
+        @keyframes buttonDrip {
+            0% { box-shadow: 0 0 20px rgba(255, 51, 51, 0.6); }
+            50% { box-shadow: 0 0 35px rgba(255, 51, 51, 0.9); }
+            100% { box-shadow: 0 0 20px rgba(255, 51, 51, 0.6); }
+        }
+        .content {
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #ff3333;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255, 51, 51, 0.5);
+            animation: contentGlow 4s ease-in-out infinite;
+        }
+        @keyframes contentGlow {
+            0% { border-color: #ff3333; box-shadow: 0 0 25px rgba(255, 51, 51, 0.5); }
+            50% { border-color: #ff5555; box-shadow: 0 0 40px rgba(255, 51, 51, 0.8); }
+            100% { border-color: #ff3333; box-shadow: 0 0 25px rgba(255, 51, 51, 0.5); }
+        }
+        .list-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1rem;
+            animation: textFlicker 4s ease-in-out infinite;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+        }
+        .list-item::before {
+            content: '🩸';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            animation: bloodDrip 2s ease-in-out infinite;
+        }
+        @keyframes textFlicker {
+            0% { color: #ff3333; text-shadow: 0 0 8px rgba(255, 51, 51, 0.6); }
+            50% { color: #cc0000; text-shadow: 0 0 12px rgba(255, 51, 51, 0.8); }
+            100% { color: #ff3333; text-shadow: 0 0 8px rgba(255, 51, 51, 0.6); }
+        }
+        @keyframes bloodDrip {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(5px); opacity: 0.7; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff3333;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 10s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 0.5; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        @media (max-width: 640px) {
+            .avatar-img {
+                width: 120px;
+                height: 120px;
+            }
+            .content {
+                padding: 15px;
+            }
+            .btn-glow {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="glow-bg"></div>
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 7s;"></div>
+    </div>
+    <header class="py-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 title-font fade-in">Вступай в наш Дисскорд сервер.</h1>
+        <p class="text-lg md:text-xl mx-auto max-w-3xl fade-in fade-in-delay-1">Играй в Dota 2, Roblox и общайся с единомышленниками!</p>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center justify-center p-4">
+        <section class="text-center mb-12 content fade-in fade-in-delay-2">
+            <img src="avatar.jpg" alt="Аватарка сервера" class="avatar-img rounded-full w-32 h-32 md:w-48 md:h-48 mx-auto mb-6">
+            <h2 class="text-2xl md:text-3xl font-semibold title-font mb-4">SuperXnova</h2>
+            <div class="text-lg max-w-3xl mx-auto text-left">
+                <p class="mb-4">Заходи на сервер, где:</p>
+                <ul>
+                    <li class="list-item">Ты найдёшь верных тиммейтов для каток в Dota 2 и Roblox.</li>
+                    <li class="list-item">Сможешь завести друзей и поговорить в голосовых чатах.</li>
+                    <li class="list-item">Будешь болтать на любые темы в приятной обстановке.</li>
+                    <li class="list-item">Погрузишься в захватывающие ивенты, конкурсы и розыгрыши с "крутыми призами".</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="text-center content fade-in fade-in-delay-3">
+            <a href="https://discord.gg/8vVVefz2P4" 
+               class="inline-block bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 btn-glow">
+                <svg class="w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.4334-.4447.9141-.6692 1.3999-1.1134-.3969-2.2268-.7917-3.3466-.7917s-2.2332.3948-3.3466.7917c-.2245-.4858-.4582-.9665-.6692-1.3999a.0741.0741 0 00-.0785-.0371 19.7913 19.7913 0 00-4.8851 1.5152.0698.0698 0 00-.0321.0277C.5337 8.1499-.319 12.8086.0934 17.3962a.0773.0773 0 00.0314.0557c1.4757 1.0771 3.0241 1.8857 4.6222 2.4589.0246.0137.0523.0068.0714-.0137.3378-.2926.6692-.6141.9966-.9515a.0755.0755 0 00-.0082-.102c-.5293-.3969-1.006-.8217-1.4666-1.2789a.0733.0733 0 01-.0068-.0959c.0993-.1324.2086-.2604.3179-.3844.4286.5293 1.006.9966 1.6139 1.3999.0246.0137.0548.0034.0714-.0137.9966-.6889 1.8857-1.5152 2.6957-2.4589.0137-.0246.0068-.0523-.0137-.0714-.5293-.5293-1.006-1.0857-1.426-1.6789a.0733.0733 0 01.0068-.0959c.0993-.1324.2086-.2604.3179-.3844.4286.5293 1.006.9966 1.6139 1.3999.0246.0137.0548.0034.0714-.0137.9966-.6889 1.8857-1.5152 2.6957-2.4589.0137-.0246.0068-.0523-.0137-.0714-.5293-.5293-1.006-1.0857-1.426-1.6789a.0733.0733 0 01.0068-.0959c.0993-.1324.2086-.2604.3179-.3844.4286.5293 1.006.9966 1.6139 1.3999.0246.0137.0548.0034.0714-.0137.3378.3378.6692.6586.9966.9515a.0773.0773 0 00.0714.0137c1.5981-.5732 3.1465-1.3818 4.6222-2.4589a.0773.0773 0 00.0314-.0557c.4124-4.5876-.4409-9.2463-2.8339-12.8773a.0698.0698 0 00-.0321-.0277zM8.827 15.9434c-.5293 0-.9966-.5293-.9966-1.1789 0-.6496.4673-1.1789.9966-1.1789.5293 0 .9966.5293.9966 1.1789 0 .6496-.4673 1.1789-.9966 1.1789zm6.3466 0c-.5293 0-.9966-.5293-.9966-1.1789 0-.6496.4673-1.1789.9966-1.1789.5293 0 .9966.5293.9966 1.1789 0 .6496-.4673 1.1789-.9966 1.1789z"/>
+                </svg>
+                Присоединиться к Дисскорд серверу
+            </a>
+        </section>
+    </main>
+
+    <footer class="py-6 text-center">
+        <p class="text-sm fade-in fade-in-delay-3">© 2025 SuperXnova. Все права не защищены.</p>
+    </footer>
+</body>
+</html>
